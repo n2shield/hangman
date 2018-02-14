@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+            <div class="jumbotron jumbotron-fluid">
+                    <h1 class="display-4 text-center">Hangman!</h1>
+                    <p class="lead text-center">Test your skills by guessing the word!</p>
+                    <hr class="my-4">
+                    <br>
+                    <p class="text-center">Use your keyboard to guess a letter, six wrong guesses and you lose! Guess the word and WIN!</p>
+            </div>
+            <div class="text-center">
+                <h2>
+                    Your word to guess is below
+                    <br>
+                    Lives: <span class="lives">6</span>
+                </h2>
+                <span class="span-12 text-center" id="answerArray">words</span>
+                <br><br>
+                <p>Wins: <span class="wins">0</span>
+                   Losses: <span class="losses">0</span>
+                </p>
+            </div>
+    </div>
+    <script>
+    var words = ["antidisestablishmentarinism", "excogitate", "unparagoned", "winebibber", "parsimononious", "equanimity", "ebullient"];
+    var word = words[Math.floor(Math.random() * words.length)];
+    var remainingLetters = word.length;
+    var answerArray = [];
+    var guesses = 6;
+
+    //get the guess
+    document.addEventListener ("keydown", function (event) {
+        console.log(event.key);
+        for (var i = 0; i < word.length; i++) {
+        if (word.indexOf(event.key) > -1) 
+        console.log(word.indexOf(event.key));
+        document.getElementById("answerArray").innerHTML=answerArray.join(event.key);
+        }
+    });
+    for (var i = 0; i < word.length; i++) {
+            answerArray[i] = " _ ";
+            document.getElementById("answerArray").innerHTML = answerArray;
+        };
+//        for (var i = 0; i < word; i++) {
+  //          document.getElementById("answerArray").innerHTML = answerArray;
+    //        if (word[i].indexOf(event.key) = true) {
+      //          console.log("this worked")
+        //    }
+            
+       // };
+    //game loop
+   // while (remainingLetters > 0) {
+    //}
+
+
+    </script>
+  </body>
+</html>
